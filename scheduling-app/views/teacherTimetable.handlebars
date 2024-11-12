@@ -1,0 +1,158 @@
+<!-- teacherTimetable.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher's Timetable</title>
+  <style>
+    /* Add this to your styles.css file */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+table.timetable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table.timetable th, table.timetable td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+table.timetable th {
+  background-color: #666;
+  color: white;
+}
+
+table.timetable td {
+  background-color: #fff;
+}
+
+.session {
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  margin-bottom: 5px;
+}
+
+.session p {
+  margin: 0;
+}
+
+.session strong {
+  display: block;
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  font-size: 16px;
+}
+
+  </style>
+</head>
+<body>
+  <main>
+    <h2>Teacher's Timetable</h2>
+    <table class="timetable">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Monday</th>
+          <th>Tuesday</th>
+          <th>Wednesday</th>
+          <th>Thursday</th>
+          <th>Friday</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>8h30 - 10h00</td>
+          <td>
+            <div class="session">
+              <p><strong>Math</strong></p>
+              <p>Room: SI 03</p>
+            </div>
+          </td>
+          <td>
+            <div class="session">
+              <p><strong>History</strong></p>
+              <p>Room: SI 02</p>
+            </div>
+          </td>
+          <td>
+            <div class="session">
+              <p><strong>Physics</strong></p>
+              <p>Room: SI 04</p>
+            </div>
+          </td>
+          <td>
+            <div class="session">
+              <p><strong>Web Design</strong></p>
+              <p>Room: SI 05</p>
+            </div>
+          </td>
+          <td>
+            <div class="session">
+              <p><strong>Mathematics</strong></p>
+              <p>Room: SI 03</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>10h10 - 11h40</td>
+          <td>
+            <div class="session">
+              <p><strong>History</strong></p>
+              <p>Room: SI 02</p>
+            </div>
+          </td>
+          <td>
+            <div class="session">
+              <p><strong>Math</strong></p>
+              <p>Room: SI 03</p>
+            </div>
+          </td>
+          <td>
+            <div class="session">
+              <p><strong>Computer Science</strong></p>
+              <p>Room: SI 06</p>
+            </div>
+          </td>
+          <td>
+            <div class="session">
+              <p><strong>English</strong></p>
+              <p>Room: SI 07</p>
+            </div>
+          </td>
+          <td>
+            <div class="session">
+              <p><strong>Physics</strong></p>
+              <p>Room: SI 04</p>
+            </div>
+          </td>
+        </tr>
+        <!-- Add more rows for other time slots -->
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insert Teacher Absence</title>
+  <style>
+    /* General Styles */
+
+
+
+/* Form Container */
+.form-container {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.1rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+  </style>
+</head>
+<body>
+  <main>
+    <div class="absence-container">
+      <h2>Insert Teacher Absence</h2>
+      <form action="/insert-absence" method="POST">
+        <div class="input-group">
+          <label for="teacher">Teacher's Name:</label>
+          <input type="text" id="teacher" name="teacher" required>
+        </div>
+        <div class="input-group">
+          <label for="day">Select Day:</label>
+          <select id="day" name="day">
+            {{#each days}}
+              <option value="{{this}}">{{this}}</option>
+            {{/each}}
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="timeslot">Select Timeslot:</label>
+          <select id="timeslot" name="timeslot">
+            {{#each timeslots}}
+              <option value="{{this}}">{{this}}</option>
+            {{/each}}
+          </select>
+        </div>
+        <button type="submit">Submit Absence</button>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

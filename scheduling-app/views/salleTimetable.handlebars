@@ -1,0 +1,78 @@
+<style>
+    .timetable-grid {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px auto;
+}
+
+.timetable-grid th, .timetable-grid td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  vertical-align: top;
+}
+
+.timetable-grid th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.timeslot .course {
+  background-color: #dff0d8;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.timeslot .empty {
+  color: #999;
+  font-style: italic;
+}
+
+.timeslot .course strong {
+  font-size: 14px;
+  color: #333;
+}
+
+.timeslot .course em {
+  font-size: 12px;
+  color: #555;
+}
+
+.timeslot .course span {
+  font-size: 12px;
+  color: #777;
+}
+
+</style>
+<h2>Timetable for Salle: {{room}}</h2>
+
+<table class="timetable-grid">
+  <thead>
+    <tr>
+      <th>Time</th>
+      {{#each days}}
+        <th>{{this}}</th>
+      {{/each}}
+    </tr>
+  </thead>
+  <tbody>
+    {{#each timeslots as |time|}}
+      <tr>
+        <td><strong>{{time}}</strong></td>
+        {{#each ../days as |day|}}
+          <td class="timeslot">
+            {{#if ../timetable.[time].[day]}}
+              <div class="course">
+                <strong>{{../timetable.[time].[day].subject}}</strong><br>
+                <em>{{../timetable.[time].[day].teacher}}</em><br>
+                <span>{{../timetable.[time].[day].group}}</span>
+              </div>
+            {{else}}
+              <div class="empty">Empty</div>
+            {{/if}}
+          </td>
+        {{/each}}
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

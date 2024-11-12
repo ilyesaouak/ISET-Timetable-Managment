@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University Scheduling App</title>
+  <style>
+    /* Main container to hold the navbar and content */
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Vertical navbar on the left */
+.navbar {
+  width: 250px;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.navbar h2 {
+  margin-bottom: 20px;
+  color: white;
+}
+
+.navbar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar li {
+  margin-bottom: 15px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 8px;
+  display: block;
+}
+
+.navbar a:hover {
+  background-color: #555;
+  border-radius: 4px;
+}
+
+/* Content area to the right of the navbar */
+.content {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Add a simple background color for the body */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Vertical Navbar on the left -->
+    <nav class="navbar">
+      <h2>ISET Timetable</h2>
+      <ul>
+        
+        <li><a href="/timetable">Timetable</a></li>
+        <li><a href="/create-timetable">Create Timetable</a></li>
+        <li><a href="/create-salle-timetable/SI%2001">Create Room Timetable</a></li>
+        <li><a href="/salle/SI%2001">Room Timetable</a></li>
+        <li><a href="/teacher-timetable/Mr.%20Smith">Teacher Timetable</a></li>
+        <li><a href="/create-teacher-timetable">Create Teacher Timetable</a></li>
+        <li><a href="/year-calendar">Scolar Year Calendar</a></li>
+        <li><a href="/absence-form">Add Teacher Absence </a></li>
+        <li><a href="/teacher-absences">Teacher Absences</a></li>
+        <li><a href="/insert-student-absence">Add Student Absence</a></li>
+        <li><a href="/view-student-absences">Student Absences</a></li>
+        
+        <li><a href="/login">Logout</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main content area -->
+    <main class="content">
+      {{{body}}} <!-- Dynamic content will be injected here -->
+    </main>
+  </div>
+</body>
+</html>

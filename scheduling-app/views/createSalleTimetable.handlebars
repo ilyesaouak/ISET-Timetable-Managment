@@ -1,0 +1,97 @@
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  h2 {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .timetable-grid {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  thead th {
+    background-color: #e0e0e0;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+  }
+
+  tbody td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    vertical-align: top;
+    text-align: center;
+  }
+
+  .timeslot input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
+
+</style>
+
+<h2>Create Timetable for Room: {{room}}</h2>
+
+<form action="/save-timetable" method="post" class="timetable-grid">
+  <table>
+    <thead>
+      <tr>
+        <th>Time</th>
+        {{#each days}}
+          <th>{{this}}</th>
+        {{/each}}
+      </tr>
+    </thead>
+    <tbody>
+      {{#each timeslots as |time|}}
+        <tr>
+          <td><strong>{{time}}</strong></td>
+          {{#each days as |day|}}
+            <td class="timeslot">
+              <input type="text" name="{{time}}-{{day}}-subject" placeholder="Subject">
+              <input type="text" name="{{time}}-{{day}}-teacher" placeholder="Teacher">
+              <input type="text" name="{{time}}-{{day}}-room" placeholder="Room">
+            </td>
+          {{/each}}
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <button type="submit">Save Timetable</button>
+</form>

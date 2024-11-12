@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Year Calendar 2024/2025</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f7f7f7;
+        }
+
+        .calendar-container {
+            width: 90%;
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 20px auto;
+        }
+
+        .month {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .month h3 {
+            text-align: center;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+
+        .day, .day-name {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .day-name {
+            font-weight: bold;
+            color: #555;
+            background-color: #f0f0f0;
+        }
+
+        .day {
+            color: #333;
+            border: 1px solid #ddd;
+            background-color: #fff;
+        }
+
+        .green {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .red {
+            background-color: #FF6347;
+            color: white;
+        }
+
+        .blue {
+            background-color: #4682B4;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="calendar-container">
+        {{#each months as |month|}}
+            <div class="month">
+                <h3>{{month.name}} {{month.year}}</h3>
+                <div class="days">
+                    <!-- Weekday Names -->
+                    <div class="day-name">Sun</div>
+                    <div class="day-name">Mon</div>
+                    <div class="day-name">Tue</div>
+                    <div class="day-name">Wed</div>
+                    <div class="day-name">Thu</div>
+                    <div class="day-name">Fri</div>
+                    <div class="day-name">Sat</div>
+
+                    <!-- Days of the Month -->
+                    {{#each month.days as |day|}}
+                        <div class="day {{day.color}}">
+                            {{day.date}}
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</body>
+</html>

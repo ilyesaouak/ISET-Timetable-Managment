@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Absences Calendar</title>
+    <style>
+        
+
+        .calendar-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .month {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+
+        .day, .day-name {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .day-name {
+            font-weight: bold;
+            color: #555;
+            background-color: #f0f0f0;
+        }
+
+        .day {
+            color: #333;
+            border: 1px solid #ddd;
+            background-color: #fff;
+        }
+
+        .absent {
+            background-color: #FF6347;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="calendar-container">
+        <h2>Teacher Absences - {{monthName}} {{year}}</h2>
+        <div class="month">
+            <!-- Weekday Names -->
+            <div class="day-name">Sun</div>
+            <div class="day-name">Mon</div>
+            <div class="day-name">Tue</div>
+            <div class="day-name">Wed</div>
+            <div class="day-name">Thu</div>
+            <div class="day-name">Fri</div>
+            <div class="day-name">Sat</div>
+
+            <!-- Empty slots for the beginning of the month -->
+            {{#each emptyDays}}
+                <div class="day"></div>
+            {{/each}}
+
+            <!-- Days of the month -->
+            {{#each days}}
+                <div class="day {{#if isAbsent}}absent{{/if}}">
+                    {{date}}
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</body>
+</html>

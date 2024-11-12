@@ -1,0 +1,110 @@
+<style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    
+
+    /* Heading Style */
+    h2 {
+      font-size: 2rem;
+      color: #333;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Login Form Styling */
+    .login-container {
+      width: 100%;
+      max-width: 400px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      place-self: center;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+      width: 100%;
+    }
+
+    label {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-top: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      font-size: 1.1rem;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .error {
+      color: red;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .login-container {
+        width: 90%;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      label, input, button {
+        font-size: 1rem;
+      }
+    }
+</style>
+
+<body>
+  <h2>Login</h2>
+  <div class="login-container">
+    {{#if error}}
+      <p class="error">{{error}}</p>
+    {{/if}}
+    <form action="/login" method="POST">
+      <div class="input-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="input-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit">Login</button>
+      <p>Don't have an account? <a href="/register">Register</a></p>
+    </form>
+  </div>
+</body>
